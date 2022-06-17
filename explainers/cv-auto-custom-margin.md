@@ -1,4 +1,4 @@
-## CSS content-visibility custom margin
+## CSS `content-visibility` custom margin
 
 This proposal is to add an enhancement to the `content-visibility: auto` feature
 which would allow the developer to specify a custom margin to use for detecting
