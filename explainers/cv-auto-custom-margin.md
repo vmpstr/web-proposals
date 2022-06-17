@@ -14,7 +14,7 @@ We propose adding a way for the developer to specify this margin.
 
 ### Option 1: extend `content-visibility` syntax.
 
-Proposed syntax amends the "auto" keword.:
+Proposed syntax amends the "auto" keyword:
 
 `content-visibility: visible | hidden | (auto || (<length-percentage> | auto))`
 
