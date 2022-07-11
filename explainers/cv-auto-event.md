@@ -12,27 +12,27 @@ to stop React updates in a subtree that is not rendered by the user-agent.
 Similarly, the developer may want to stop any other script updates (e.g. canvas
 updates) when the user-agent is not rendering the element. 
 
-### Bikeshed 1: ContentVisibilityAutoStateChanged
+### Proposal: ContentVisibilityAutoStateChanged
 
-Pros:
-  * Unambiguous, and describes exactly what the event represents
+`ContentVisibilityAutoStateChanged` event inherits from `Event`. It provides
+an additional parameter:
 
-Cons:
-  * Verbose
+  * `ContentVisibilityAutoStateChanged.skipped`: read-only, bool value that
+    indicates whether the state of the `content-visibility` element became
+    skipped.
 
-### Bikeshed 2: RenderingStateChanged
+This event's target is the element with `content-visibility: auto` style that
+changed the state. The event bubbles.
 
-Pros:
-  * Succinct
- 
-Cons:
-  * Unclear if this applies only to `content-visibility: auto` or any other
-    methods that may cause rendering to stop, such as `content-visibility:
-    hidden` or `display: none`
+#### Considerations
 
-As a side-note, it's also unclear if maybe we _should_ fire this event in all
-cases where rendering is affected, which would affect the scope of the proposal.
-We would need to figure out a comprehensive list of properties / states that can
-cause this event to be fired.
+This event makes it easier for developer to skip work within a subtree affected
+by `content-visibility: auto`. Since `content-visibility: auto` subtree elements
+are exposed to accessibility, developers must take care to ensure that the work
+that they choose to skip does not negatively impact accessibility. We propose
+adding a note to the spec to elaborate on this.
 
-### Bikeshed 3: ???
+Note that even without this event, it is still possible to polyfill the behavior
+with a combination of `IntersectionObserver` and `MutationObserver`. From this
+perspective, the event does not add a capability to observe new behaviors, but
+rather an easier way to discover events that are should already be discoverable.
