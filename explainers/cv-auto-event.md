@@ -24,6 +24,29 @@ an additional parameter:
 This event's target is the element with `content-visibility: auto` style that
 changed the state. The event bubbles.
 
+#### Example
+
+```js
+function init() {
+  container.addEventListener("contentvisibilityautostatechanged", stateChanged);
+  container.style.contentVisibility = "auto";
+}
+
+function stateChanged(e) {
+  if (e.skipped) {
+    stopCanvasUpdates(e.target.querySelector("canvas"));
+  } else {
+    startCanvasUpdates(e.target.querySelector("canvas"));
+  }
+}
+
+// Call this when the canvas updates need to start.
+function startCanvasUpdates(canvas) { ... }
+
+// Call this when the canvas updates need to stop.
+function stopCanvasUpdates(canvas) { ... }
+```
+
 #### Considerations
 
 This event makes it easier for developer to skip work within a subtree affected
