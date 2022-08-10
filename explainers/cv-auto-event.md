@@ -8,9 +8,14 @@ user](https://www.w3.org/TR/css-contain-2/#relevant-to-the-user).
 The use-case for this is to let developers have greater control over when to
 stop or start rendering in response to the user-agent stopping or starting
 rendering of the `content-visibility` subtree. For example, the developer may want
-to stop React updates in a subtree that is not rendered by the user-agent.
-Similarly, the developer may want to stop any other script updates (e.g. canvas
-updates) when the user-agent is not rendering the element. 
+to deprioritize React updates in a subtree that is not rendered by the user-agent.
+Similarly, the developer may want to stop other script updates (e.g. canvas
+updates) when the user-agent is not rendering the element. It is important to
+note that since `content-visibility: auto` subtree elements remain symantically
+relevant, updates in such subtrees should still continue to happen, but are
+allowed to happen at a reduced priority. This ensures that features such as
+find-in-page and assistive technologies get access to a reasonably updated
+content.
 
 ### Proposal: ContentVisibilityAutoStateChanged
 
