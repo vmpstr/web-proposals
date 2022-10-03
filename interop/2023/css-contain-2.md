@@ -34,7 +34,7 @@ technologies via the accessibility tree. This further unlocks features such as
 `hidden=until-found`.
 
 * Blink: `css-contain-2`, including `content-visibility` is implemented.
-    Over (4%)[https://chromestatus.com/metrics/css/timeline/popularity/662) of
+    Over [4%](https://chromestatus.com/metrics/css/timeline/popularity/662) of
     page loads use content-visibility, despite it only being available in Blink
     at the moment.
 * WebKit: work ongoing: [content-visibility bug / patch list](https://bugs.webkit.org/buglist.cgi?quicksearch=content-visibility)
@@ -42,17 +42,15 @@ technologies via the accessibility tree. This further unlocks features such as
 * Mozilla RFP status: [worth prototyping](https://github.com/mozilla/standards-positions/issues/135#issuecomment-650923098)
 
 Community feedback:
-React / Meta engineer:
+
+[Vincent Riemer](https://twitter.com/vincentriemer/status/1288668233457758208), React / Meta engineer:
 > Just did a quick test and boi oh boi — the upcoming `content-visibility` CSS property has the potential to be one of the biggest performance improvements to SPAs (if properly leveraged) I've seen in a long time.
-- [Vincent Riemer](https://twitter.com/vincentriemer/status/1288668233457758208)
 
-Google engineer:
+[Addy Osmani](https://twitter.com/addyosmani/status/1368479029683122180), Google engineer:
 > CSS "content-visibility:auto" is amazing: skip rendering & painting offscreen content until needed. I got a ~1s faster render on a long HTML document on desktop, ~3s on mobile.
-- [Addy Osmani](https://twitter.com/addyosmani/status/1368479029683122180)
 
-Meta, Databricks engineer:
+[Benoit Girard](https://twitter.com/b56girard/status/1417918695792201732), Databricks engineer, ex-Meta engineer:
 > Saved over 1 seconds of restyle time on a very large list with 2 lines of CSS using content-visibility, under 1 hour of work
-- [Benoit Girard](https://twitter.com/b56girard/status/1417918695792201732)
 
 
 ## Specification:
