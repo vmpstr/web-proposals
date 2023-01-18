@@ -17,12 +17,16 @@ allowed to happen at a reduced priority. This ensures that features such as
 find-in-page and assistive technologies get access to a reasonably updated
 content.
 
-### Proposal: ContentVisibilityAutoStateChanged
+**Note:** _A previous iteration of this proposal used `contentvisibilityautostatechanged` 
+(in the past tense). The latest event name is `contentvisibilityautostatechange`
+(present tense)._
 
-`ContentVisibilityAutoStateChanged` event inherits from `Event`. It provides
+### Proposal: ContentVisibilityAutoStateChange
+
+`ContentVisibilityAutoStateChange` event inherits from `Event`. It provides
 an additional parameter:
 
-  * `ContentVisibilityAutoStateChanged.skipped`: read-only, bool value that
+  * `ContentVisibilityAutoStateChange.skipped`: read-only, bool value that
     indicates whether the state of the `content-visibility` element became
     skipped.
 
@@ -33,7 +37,7 @@ changed the state. The event bubbles.
 
 ```js
 function init() {
-  container.addEventListener("contentvisibilityautostatechanged", stateChanged);
+  container.addEventListener("contentvisibilityautostatechange", stateChanged);
   container.style.contentVisibility = "auto";
 }
 
