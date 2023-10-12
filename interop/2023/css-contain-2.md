@@ -2,7 +2,7 @@
 
 ## Description
 
-CSS Containment Mdule, Level 2, specifies the `contain` and `content-visibility`
+CSS Containment Module, Level 2, specifies the `contain` and `content-visibility`
 properties. These properties are important primitives that allow websites to
 scale the amount of content they provide while maintaining good performance. In
 particular `content-visibility: auto` is simple to adopt and automatically
