@@ -57,7 +57,7 @@ html:active-view-transition(greed)::view-transition-group(villain) {
 ```js
 element.addEventListener("click", e => {
   document.startViewTransition({
-    types: ["courage"],
+    type: ["courage"],
     update: () => {
       changeTheDom();
     }
