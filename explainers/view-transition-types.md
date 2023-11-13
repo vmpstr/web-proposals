@@ -81,3 +81,41 @@ and [additions to the
 document](https://drafts.csswg.org/css-view-transitions-2/#additions-to-document-api).
 Please note that the spec has several features in it that are being worked on in
 parallel. This particular explainer only address the list of types feature.
+
+#### Alternatives Considered
+
+We have considered not adding any feature to this, since the above use-case could also be addressed by regular classes:
+
+```css
+html.courage #hero {
+  view-transition-name: hero;
+}
+html.greed #villain {
+  view-transition-name: villain;
+}
+
+html.courage::view-transition-group(hero) {
+  animation: my-animation;
+}
+html.greed::view-transition-group(villain) {
+  animation: my-dampening;
+}
+```
+
+```js
+element.addEventListener("click", e => {
+  document.documentElement.classList.add("courage");
+  let transition = document.startViewTransition(changeTheDom);
+  transition.finished.then(() => {
+    document.documentElement.classList.remove("courage");
+  });
+});
+```
+
+This seems less ergonomic, since the pattern of how to add and remove classes isn't as easy to remember.
+
+The proposed API also has two other advantanges:
+* One can select based on `html:active-view-transition(*)` without changing the script callsite. This
+  matches any time there is an active view transition, regardless of the type.
+* Types can also be used in cross-document view transitions. This is still being actively discussed, but the
+  polyfill for this would be more difficult, since script is not involved in making cross-document view transitions.
