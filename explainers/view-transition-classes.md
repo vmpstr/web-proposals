@@ -1,6 +1,6 @@
-### View Transitions: view-transition-class
+## View Transitions: view-transition-class
 
-#### Background
+### Background
 
 The [View Transitions](https://drafts.csswg.org/css-view-transitions-1/) feature
 allows developers to create transitions between DOM states. The setup for the
