@@ -92,7 +92,10 @@ will cause a view transition class to be `vt-list-item` for them:
 }
 ```
 
-Now, the syntax to select just the list items becomes the following:
+We would also like to add new syntax to leverage the view-transition-class. The
+following example only selects view transition pseudo elements that were
+generated from elements that had a corresponding `view-transition-class`:
+
 ```
 ::view-transition-group(.vt-list-item) {
   background: green;
