@@ -123,7 +123,7 @@ the CSS class directly to the view transition pseudo elements:
 <div class="vt-list-item" style="view-transition-name: list-item"></div>
 ```
 
-We deciced aagainst this approach, because it conflates the notion of class too
+We deciced against this approach, because it conflates the notion of class too
 much. That is, the class here applies to the element and hoisting that knowledge
 to a pseudo element that is constructed from this element seemed too magical.
 
